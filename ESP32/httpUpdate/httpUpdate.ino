@@ -15,7 +15,7 @@
 
 WiFiMulti WiFiMulti;
 
-#define version 0
+#define firmware_version 0.0
 
 #define ssid "test wifi"
 #define password  "12345678"
@@ -25,22 +25,21 @@ void setup() {
   Serial.begin(115200);
   // Serial.setDebugOutput(true);
 
-  Serial.println();
-  Serial.println();
-  Serial.println();
-
+  Serial.println("\n\n\n");
+  
+  WiFi.mode(WIFI_STA);
+  WiFiMulti.addAP(ssid, password);
   for (uint8_t t = 4; t > 0; t--) {
     Serial.printf("[SETUP] WAIT %d...\n", t);
     Serial.flush();
     delay(1000);
   }
 
-  WiFi.mode(WIFI_STA);
-  WiFiMulti.addAP(ssid, password);
-
 
 }
 
 void loop() {
-  
+  Serial.println(firmware_version);
+  OTA_update();
+
 }

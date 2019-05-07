@@ -1,4 +1,4 @@
-void OTA_update() {
+void OTA_update(String server, String filePath) {
   // wait for WiFi connection
   if ((WiFiMulti.run() == WL_CONNECTED)) {
 
@@ -12,9 +12,9 @@ void OTA_update() {
     // value is used to put the LED on. If the LED is on with HIGH, that value should be passed
     httpUpdate.setLedPin(LED_BUILTIN, LOW);
 
-    t_httpUpdate_return ret = httpUpdate.update(client, "http://server/file.bin");
+    //t_httpUpdate_return ret = httpUpdate.update(client, "http://server/file.bin");
     // Or:
-    //t_httpUpdate_return ret = httpUpdate.update(client, "server", 80, "file.bin");
+    t_httpUpdate_return ret = httpUpdate.update(client, server, 80, filePath);
 
     switch (ret) {
       case HTTP_UPDATE_FAILED:
