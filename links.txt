@@ -1,0 +1,3 @@
+https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/system/esp_https_ota.html#
+
+http://kstobbe.dk/2019/03/20/web-server-for-esp32-and-esp8266-software-update-over-the-air/
