@@ -2,7 +2,7 @@ void OTA_update() {
   // wait for WiFi connection
   if ((WiFiMulti.run() == WL_CONNECTED)) {
 
-    String update_url = update_server + "/update?ver=" + firmware_version + "&dev=" + dev_ID;
+    String update_url = update_server + "/update.php?ver=" + firmware_version + "&dev=" + dev_ID;
 
 
 
