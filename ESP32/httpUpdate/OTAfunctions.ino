@@ -1,6 +1,11 @@
-void OTA_update(String server, String filePath) {
+void OTA_update() {
   // wait for WiFi connection
   if ((WiFiMulti.run() == WL_CONNECTED)) {
+
+    String update_url = update_server + "/update?ver=" + firmware_version + "&dev=" + dev_ID;
+
+
+
 
     WiFiClient client;
 
@@ -14,7 +19,8 @@ void OTA_update(String server, String filePath) {
 
     //t_httpUpdate_return ret = httpUpdate.update(client, "http://server/file.bin");
     // Or:
-    t_httpUpdate_return ret = httpUpdate.update(client, server, 80, filePath);
+    //t_httpUpdate_return ret = httpUpdate.update(client, server, 80, filePath);
+    t_httpUpdate_return ret = httpUpdate.update(client, update_url);
 
     switch (ret) {
       case HTTP_UPDATE_FAILED:
